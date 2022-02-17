@@ -11,6 +11,27 @@
   </head>
 
   <body>
+    <header>
+     <div class = "header-left">
+      <a href="/"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ロゴ画像"></a>
+     </div>
+     
+     <div class = "header-right">
+      <div class = nav-item> 
+       <ul>
+        <li class = "btn sign_in"><%= link_to "ログイン", :new_user_session %></li>
+        <li class = "btn sign_up"><%= link_to "新規登録", :new_user_registration %></li>
+       </ul>
+      </div>
+     </div>
+    </header>
+
+   
     <%= yield %>
+
+    <footer>
+     <p>©️2020 POTEPAN.INC.</p>
+    </footer>
+
   </body>
 </html>
