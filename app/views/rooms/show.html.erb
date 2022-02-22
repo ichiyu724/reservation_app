@@ -1,0 +1,54 @@
+<p class = "notice"><%= flash[:notice]%></p>
+<div class = room_show_container>
+
+
+ <h3>ルーム詳細</h3>
+ <table>
+  <tr>
+   <td><%= image_tag @room.image.url, size: '470x270' %></td>
+  </tr>
+  
+   <tr>
+    <th>部屋名</th>
+    <td><%= @room.name %></td>
+   </tr>
+   
+   <tr>
+    <th>所在地</th>
+    <td><%= @room.address %></td>
+   </tr>
+   
+   <tr>
+    <th>部屋紹介</th>
+    <td><%= @room.introduction %></td>
+   </tr>
+ </table>
+
+ <div class = "reservation_new">
+  
+  <%= form_with model: @reservation, url: new_reservation_path, local: true, method: :get do |f|%>
+   <%= f.hidden_field :id, value: @room.id %>
+
+   <table>
+    <tr><div><%= f.label :price, "宿泊費"%><br>¥<%= @room.price %>/日</div></tr>
+  <tr> 
+   <th><%= f.label :check_in, "開始日"%></th>
+   <td><%= f.date_field :check_in %></td>
+  </tr>
+  <tr> 
+   <th><%= f.label :check_out, "終了日"%></th>
+   <td><%= f.date_field :check_out %></td>
+  </tr>
+  <tr> 
+   <th><%= f.label :person_num, "人数"%></th>
+   <td><%= f.number_field :person_num %></td>
+  </tr>
+ </table>
+ 
+ <%= f.submit "予約する" %>
+ <% end %>
+ 
+ </div>
+
+
+</div>

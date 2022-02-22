@@ -18,10 +18,19 @@
      
      <div class = "header-right">
       <div class = nav-item> 
-       <ul>
-        <li class = "btn sign_in"><%= link_to "ログイン", :new_user_session %></li>
-        <li class = "btn sign_up"><%= link_to "新規登録", :new_user_registration %></li>
-       </ul>
+       <% if user_signed_in? %>
+        <%= link_to "ルーム登録", :new_room %>
+        <%= link_to "予約済みルーム一覧", :reservations %>
+        <%= link_to "登録済みルーム一覧"%>
+        <%= link_to "設定"%>
+        <%= link_to "ログアウト", destroy_user_session_path, method: "delete" %> 
+       <% else %>
+        <ul>
+         <li class = "btn sign_in"><%= link_to "ログイン", :new_user_session %></li>
+         <li class = "btn sign_up"><%= link_to "新規登録", :new_user_registration %></li>
+        </ul>
+       <% end %>
+       
       </div>
      </div>
     </header>
