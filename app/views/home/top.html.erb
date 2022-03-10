@@ -1,7 +1,11 @@
 <div class = "top-main">
   <div class = "container">
       <div class = "form-area">
-       <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+        <p>Potepan Shareでまだ体験<br>したことのない旅をしよう</p>
+        <%= search_form_for @search, url: search_rooms_path do |f| %>
+        <%= f.search_field :address_cont, class: "search-box", :placeholder => "エリア" %><br>
+        <%= f.submit "探す", class: 'search-btn' %>
+       <% end %>
       </div>      
   </div>
 </div>

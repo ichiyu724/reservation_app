@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    #flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
+    flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
     @rooms = Room.all
   end
 
@@ -11,12 +11,13 @@ class RoomsController < ApplicationController
   end
   
   def create
+    @user_id = current_user.id
     @room = Room.new(room_params)
     if @room.save
-      flash[:notice] = "The room has been successfully registered!"
+      flash[:notice] = "ルームを登録しました"
       redirect_to room_path(@room)
     else
-      render new
+      render :new
     end    
   end
   
@@ -25,15 +26,18 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @reservation = Reservation.new
     @reservation.room_id = @room.id
-    #binding.pry
   end
-
+  
+  def search
+    index
+    render :index
+  end
   private
 
   def room_params
-    params.require(:reservation).permit(:name, :introduction, :price, :address, :image)
+    params.require(:room).permit(:name, :introduction, :price, :address, :image).merge(user_id: current_user.id)
   end
-  
+    
 
   def edit
     

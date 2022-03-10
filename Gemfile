@@ -60,3 +60,7 @@ gem 'devise-i18n-views'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem "ransack"
+gem 'rails-i18n'

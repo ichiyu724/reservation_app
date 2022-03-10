@@ -1,37 +1,41 @@
-
+<div class = "room-registration"> 
 <h3>ルーム情報登録</h3>
 
+<%= render "shared/error", obj: @room %>
+
 <%= form_with model: @room do |f| %>
-<div class = "room-registration"> 
- <div class = "room-field">
-  <%= f.label :name ,"ルーム名" %>
-  <%= f.text_field :name, :placeholder => "ルーム名を入力"%>
- </div>
+<table>
+ <tr class = "room-field">
+  <th><%= f.label :name ,"ルーム名", class: "form-header" %></th>
+  <td><%= f.text_field :name, class: "form-control", :placeholder => "ルーム名を入力"%></td>
+ </tr>
  
- <div class = "room-field">
-  <%= f.label :introduction ,"ルーム紹介" %>
-  <%= f.text_area :introduction, :placeholder => "ルーム説明を入力"%>
- </div>
+ <tr class = "room-field">
+  <th><%= f.label :introduction ,"ルーム紹介", class: "form-header" %></th>
+  <td><%= f.text_area :introduction, class: "form-control", :placeholder => "ルーム説明を入力"%></td>
+ </tr>
  
- <div class = "room-field">
-  <%= f.label :price ,"料金" %>
-  <%= f.text_field :price, :placeholder => "1日あたりの料金を入力"%>
- </div>
+ <tr class = "room-field">
+  <th><%= f.label :price ,"料金", class: "form-header" %></th>
+  <td><%= f.text_field :price, class: "form-control", :placeholder => "1日あたりの料金を入力"%></td>
+ </tr>
 
- <div class = "room-field">
-  <%= f.label :address ,"住所" %>
-  <%= f.text_field :address, :placeholder => "住所を入力"%>
- </div>
+ <tr class = "room-field">
+  <th><%= f.label :address ,"住所", class: "form-header" %></th>
+  <td><%= f.text_field :address, class: "form-control", :placeholder => "住所を入力"%></td>
+ </tr>
 
- <div class = "room-field">
-  <%= f.label :image ,"ルーム画像" %>
-  <%= f.file_field :image %>
- </div>
-<%= f.hidden_field :id, value: @room.id %>
- <div>
-  <ul>
-   <li><%= f.submit "登録する" %></li>
-  </ul>
- </div>
+ <tr class = "room-field">
+  <th><%= f.label :image ,"ルーム画像", class: "form-header" %></th>
+  <td><%= f.file_field :image %></td>
+ </tr>
+
+ <tr>
+  <td><li><%= f.submit "登録する", class: "btn-submit" %></td>
+ </tr>
+ </table>
+
+ <%= f.hidden_field :id, value: @room.id %>
+
 </div>
 <% end %>

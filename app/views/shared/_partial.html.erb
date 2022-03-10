@@ -1,0 +1,17 @@
+<ul class = "account-setting">
+ <li><%= link_to "アカウント", account_path %></li>
+ <li><%= link_to "プロフィール", profile_path %></li>
+</ul>
+
+<script>
+$(function() {
+    $(".account-setting li a").each(function() {
+        let target = $(this).attr("href");
+        if(location.href.match(target)) {
+            $(this).addClass("active");    
+        } else {
+            $(this).removeClass("active");
+        }
+    });
+});
+</script>

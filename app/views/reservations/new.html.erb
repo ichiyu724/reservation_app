@@ -1,27 +1,48 @@
-<h3>予約内容確認</h3>
-
+<div class = "reservation-confirm-container" >
+ <h3>予約内容確認</h3>
+ <div class = "reservation-confirm" >
  <%= form_with model: @reservation do |f|%>
-   <table><%#binding.pry%>
-    <tr><div><%#= f.label :room_price, "宿泊費"%><br>¥<%#= @room.price %>/日</div></tr>
-  <tr> 
-   <th><%= f.label :check_in, "開始日"%></th>
-   <td><%= f.date_field :check_in, disabled: true %></td>
-  </tr>
-  <tr> 
-   <th><%= f.label :check_out, "終了日"%></th>
-   <td><%= f.date_field :check_out, disabled: true %></td>
-  </tr>
-  <tr> 
-   <th><%= f.label :person_num, "人数"%></th>
-   <td><%= f.number_field :person_num, disabled: true %></td>
-  </tr>
- </table>
- <%= f.hidden_field :id, value: @room.id %>
-<div>
- <ul>
-  <li><%= f.submit "予約を確定する" %></li>
-  <li><%= f.submit "ルーム詳細に戻る" %></li>
- </ul>
+   <table>
+    <tr>
+     <th><%= f.label :room_price, "宿泊費"%></th>
+     <td>¥<%= @room.price %>/日</td>
+    </tr>
+    <tr> 
+     <th><%= f.label :check_in, "開始日"%></th>
+     <td><%= f.date_field :check_in, readonly: true %></td>
+    </tr>
+    <tr> 
+     <th><%= f.label :check_out, "終了日"%></th>
+     <td><%= f.date_field :check_out, readonly: true %></td>
+    </tr>
+    <tr>
+     <th>使用日数</th>
+     <td><%= @reservation.total_day %>日</td>
+    </tr>
+    <tr> 
+     <th><%= f.label :person_num, "人数"%></th>
+     <td><%= f.number_field :person_num, readonly: true, min: 1 %></td>
+    </tr>
+    <tr>
+     <th>合計金額</th>
+     <td><%= @reservation.total_amount %>円</td>
+    </tr>
+   </table>
+
+  <p>上記の内容でよろしければ「予約を確定する」ボタンを押してください</p>
+ </div>
+
+ <%= f.hidden_field :room_id, value: @room.id %>
+ <%= f.hidden_field :name, value: @room.name %>
+ <%= f.hidden_field :user_id, value: current_user.id %>
+ <%= f.hidden_field :room_introduction, value: @room.introduction %>
+ <%= f.hidden_field :room_image, value: @room.image %>
+ <div class = "btn-confirm">
+  <ul>
+    <li><%= f.submit "予約を確定する", class: "btn-submit" %></li>
+    <li><%= f.submit "ルーム詳細に戻る", name: :back, class: "btn-submit"%></li>
+  </ul>
+ </div>
+
 </div>
- 
  <% end %>

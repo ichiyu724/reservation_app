@@ -1,3 +1,59 @@
-// Place all the styles related to the rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.room-registraion {
+    width: 100%;
+}
+
+
+.form-header {
+    float: left;
+    clear: both;
+    margin-right: 70px;
+}
+
+.form-header::after {
+    content: "必須";
+    background-color:#ff0000a8;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin:0 5px;
+}
+
+.form-control {
+    width: 100%;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.btn-submit {
+    color: #fff;
+    background-color: #4a90e2;
+    border: 1px solid #4a90e2;
+    border-radius: 5px;
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.room-show-container {  
+    width: 100%;
+}
+
+.room-details table th {
+    width: 80px;
+}
+
+.reservation-new {
+    position: absolute;
+    right: 150px;
+    top: 180px;
+}
+
+.reservation-new table {
+    height: 200px;
+}
+
+.reservation-new th, .reservation-new td {
+    border-top: 1px solid #eaedef;
+}

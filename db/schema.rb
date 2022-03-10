@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_121007) do
+ActiveRecord::Schema.define(version: 2022_03_05_171751) do
 
   create_table "reservations", force: :cascade do |t|
     t.string "room_image"
@@ -18,12 +18,15 @@ ActiveRecord::Schema.define(version: 2022_02_19_121007) do
     t.string "room_address"
     t.text "room_introduction"
     t.integer "room_price"
-    t.datetime "check_in"
-    t.datetime "check_out"
+    t.date "check_in"
+    t.date "check_out"
     t.integer "person_num"
     t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "total_day"
+    t.integer "total_amount"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_121007) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +49,9 @@ ActiveRecord::Schema.define(version: 2022_02_19_121007) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
+    t.text "profile"
+    t.string "icon_image"
+    t.string "icon_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
