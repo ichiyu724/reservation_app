@@ -1,0 +1,133 @@
+.user-wrapper {
+    background-color: #F6F8F9;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.user-info {
+    background-color: white;
+}
+
+.user-info table {
+    height: 150px;
+    border: 1px solid #eaedef;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin-bottom: 30px;
+}
+
+.user-info th, .user-info td {
+    border-top: 1px solid #eaedef;
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: #4a90e2;
+    border: 1px solid #4a90e2;
+    border-radius: 5px;
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+    padding: 5px 100px;
+    margin-bottom: 20px;
+}
+
+.field {
+    margin: 20px 0;
+}
+
+.account-form-control {
+    width: 200px;
+    
+}
+
+.btn-account-update {
+    color: #fff;
+    background-color: #4a90e2;
+    border: 1px solid #4a90e2;
+    border-radius: 5px;
+    height: 25px;
+    width: 207px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.btn-back {
+    color: #4a90e2;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+    width: 80px;
+    cursor: pointer;
+    padding: 3px 87px;
+    margin-bottom: 20px;
+}
+
+.username-form-header, .profile-form-header {
+    float: left;
+    clear: both;
+    margin-right: 70px;
+}
+
+.username-form-control  {
+    width: 200%;
+    line-height: 1.5;
+    font-size: 14px;
+}
+.profile-form-control {
+    width: 200%;
+    line-height: 2.5;
+    font-size: 14px;
+}
+
+.username-form-header::after {
+    content: "必須";
+    background-color:#ff0000a8;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin:0 5px;
+}
+
+.user-icon {
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.btn-signup,.btn-signin {
+    color: #fff;
+    background-color: #4a90e2;
+    border: 1px solid #4a90e2;
+    border-radius: 5px;
+    height: 25px;
+    width: 207px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.login-container {
+    text-align: center;
+    width: 100%;
+    padding: 24px;
+}
+
+.login-container .login-header {
+    text-align: center;
+}
+
+.field {
+    margin: 5px 0;
+    height: 40px;
+}
+
+.signup-container {
+    text-align: center;
+    width: 100%;
+    padding: 24px;
+}

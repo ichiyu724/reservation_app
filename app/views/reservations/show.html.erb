@@ -1,0 +1,25 @@
+<p class = "notice"><%= flash[:notice]%></p>
+
+<div class = "reservation-complete">
+ <table>
+  <tr>
+    <th>予約した部屋</th>
+    <td><%= @reservation.room_name %></td>
+  </tr>
+
+  <tr>
+    <th>開始日</th>
+    <td><%= @reservation.check_in %></td>
+  </tr>
+
+  <tr>
+    <th>終了日</th>
+    <td><%= @reservation.check_out %></td>
+  </tr>
+
+  <tr>
+    <th>価格</th>
+    <td><%= @reservation.total_amount %>円</td>
+  </tr>
+ </table>
+</div>

@@ -1,0 +1,58 @@
+<div class = "room-show-container"> 
+  <p class = "notice"><%= flash[:notice]%></p>
+
+  <%= render "shared/error", obj: @reservation %>
+
+  <div class = "room-details" >
+  <h3>ルーム詳細</h3>
+    <%= image_tag @room.image.url, size: '470x270' %>
+    <table>
+    <tr>
+      <th>部屋名</th>
+      <td><%= @room.name %></td>
+    </tr>
+    <tr>
+      <th>所在地</th>
+      <td><%= @room.address %></td>
+    </tr>
+    <tr>
+      <th>部屋紹介</th>
+      <td><%= @room.introduction %></td>
+    </tr>
+  </table>
+  </div>
+
+  <div class = "reservation-new">
+  <%= form_with model: @reservation, url: new_reservation_path, method: :get do |f|%>
+    <table>
+    <tr>
+      <th><%= f.label :price, "宿泊費"%></th>
+      <td>¥<%= @room.price %>/日</td>
+    </tr>
+    <tr> 
+      <th><%= f.label :check_in, "開始日"%></th>
+      <td><%= f.date_field :check_in %></td>
+    </tr>
+    <tr> 
+      <th><%= f.label :check_out, "終了日"%></th>
+      <td><%= f.date_field :check_out %></td>
+    </tr>
+    <tr> 
+      <th><%= f.label :person_num, "人数"%></th>
+      <td><%= f.number_field :person_num, min: 1 %></td>
+    </tr>
+    <tr>
+      <td> <%= f.submit "予約する", class: "btn-submit" %></td>
+    </tr>
+  </table>
+
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :id, value: @reservation.id%>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :introduction, value: @room.introduction %>
+    <%= f.hidden_field :image, value: @room.image %>
+  <% end %>
+  
+  </div>
+
+</div>
