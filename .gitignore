@@ -30,6 +30,7 @@
 .byebug_history
 /public/uploads/room/
 /public/uploads/user/
+/public/uploads/tmp/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
